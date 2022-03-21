@@ -27,7 +27,7 @@ public class RebelService {
     }
     private Integer getTotalPoints(List<NegotiationItemDto> negotiationItemDtoList) {
         Integer totalPoints = negotiationItemDtoList.stream()
-                .map(item -> item.quantity() * item.resource().getPoints())
+                .map(item -> item.quantity() * item.resource().getPontos())
                 .reduce(0, (acc, act) -> acc += act);
         return totalPoints;
     }

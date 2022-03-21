@@ -61,7 +61,7 @@ public class DashboardService {
         Map<String, Double> map = new HashMap<>();
         Double sumPoints = getBetrayers().stream()
                 .flatMap(resources -> resources.getResources().stream())
-                .mapToDouble(rebelResource -> rebelResource.getQuantity() * rebelResource.getResource().getPoints())
+                .mapToDouble(rebelResource -> rebelResource.getQuantity() * rebelResource.getResource().getPontos())
                 .sum();
         map.put("Because Of Betrayers", sumPoints);
         Map<String, Map<String, Double>> finalData = new HashMap<>();
