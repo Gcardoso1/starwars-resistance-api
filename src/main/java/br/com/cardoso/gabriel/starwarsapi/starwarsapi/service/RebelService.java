@@ -1,5 +1,6 @@
 package br.com.cardoso.gabriel.starwarsapi.starwarsapi.service;
 
+import br.com.cardoso.gabriel.starwarsapi.starwarsapi.dto.NegotiationDto;
 import br.com.cardoso.gabriel.starwarsapi.starwarsapi.dto.NegotiationItemDto;
 import br.com.cardoso.gabriel.starwarsapi.starwarsapi.exception.*;
 import br.com.cardoso.gabriel.starwarsapi.starwarsapi.model.Location;
@@ -29,6 +30,9 @@ public class RebelService {
                 .map(item -> item.quantity() * item.resource().getPoints())
                 .reduce(0, (acc, act) -> acc += act);
         return totalPoints;
+    }
+    public Rebel save(Rebel rebel) {
+        return rebelRepository.save(rebel);
     }
 
     private List<RebelResource> getResourceListNegotiated(
